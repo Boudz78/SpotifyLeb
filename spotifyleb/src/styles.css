@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
+  font-family: "circular";
+  src: local("circular"), url(./assets/fonts/circular-black.otf);
+}
+* {
+  font-family: "circular";
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "circular", sans-serif;
+}
