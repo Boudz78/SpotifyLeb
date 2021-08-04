@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   CLIENT_ID: 'c423ef54f03345609190ed41cd6d1d91',
-  URL_LINK: 'http://localhost:4200/',
+  URL_LINK: 'http://localhost:4200',
   SPOTIFY_AUTH_URL: 'https://accounts.spotify.com/authorize?',
 };
 

@@ -1,10 +1,15 @@
 <mat-toolbar>
-  <img src="/assets/logo/spotify.svg" width="200px" alt="" />
-  Spotify
+  <div style="border: 2px green">
+    <img src="/assets/logo/spotify.svg" width="200px" alt="" />
+  </div>
+  <!-- Spotify
   <input
     placeholder="Search Here.."
     value="Sushi"
     height="40px"
     style="max-height: 40px; border-radius: 25px; border-color: transparent"
-  />
+  /> -->
+  <div style="width: 100%; text-align: end" *ngIf="showSignOut">
+    <button class="btn btn-danger" (click)="handleSignOut()">Sign Out</button>
+  </div>
 </mat-toolbar>

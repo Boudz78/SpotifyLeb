@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,9 +8,26 @@ import { AuthComponent } from './Components/auth/auth.component';
 import { NavComponent } from './Components/shared/nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { HomeComponent } from './Components/core/home/home.component';
+import { AuthcallbackComponent } from './Components/auth/authcallback/authcallback.component';
+import { HttpinterceptorService } from './Services/httpinterceptor.service';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './Services/route-reuse-service.service';
+import { AlbumDetailComponent } from './Components/core/album-detail/album-detail.component';
+import { FooterComponent } from './Components/shared/footer/footer.component';
+import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, NavComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    NavComponent,
+    HomeComponent,
+    AuthcallbackComponent,
+    AlbumDetailComponent,
+    FooterComponent,
+    NumberSuffixPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,7 +35,17 @@ import { MaterialModule } from './material.module';
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorService,
+      multi: true,
+    },
+    {
+      provide: RouteReuseStrategy,
+      useClass: CustomReuseStrategy,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

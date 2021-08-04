@@ -1,0 +1,109 @@
+<div
+  class="fluid-container"
+  style="
+    background-color: rgb(14, 18, 14);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  "
+>
+  <div class="fluid-container text-center">
+    <div class="row">
+      <div
+        class="col my-2"
+        style="
+          align-items: center;
+          justify-content: center;
+          vertical-align: middle;
+        "
+      >
+        <input
+          #searchQueryInputField
+          type="text"
+          placeholder="Search Artists"
+          class="search text-center"
+          (input)="inputChanged(searchQueryInputField.value)"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="fluid-container text-center"
+    style="background-color: rgb(14, 18, 14)"
+  >
+    <div *ngIf="artists?.length === 0">
+      <div class="pl-2" style="padding-top: 90px">
+        <p class="Welcometext">Welcome Back, {{ userInfo?.display_name }}</p>
+      </div>
+      <div class="pl-2" style="padding-top: 30px">
+        <p class="subwelcometext">Explore your favorite artists now!</p>
+      </div>
+    </div>
+    <div class="fluid-container px-5" *ngIf="artists?.length !== 0">
+      <div class="py-3">
+        <p style="font-size: 25px; color: white">
+          Showing Results For "{{ searchQuery | async }}"
+        </p>
+      </div>
+      <div class="row px-3">
+        <div
+          *ngFor="let artist of artists"
+          class="col-lg-3 col-md-4 col-sm-6 pb-3"
+          style="height: 200px; cursor: pointer"
+          (click)="showAlbumsFor(artist?.id, artist?.name)"
+        >
+          <div
+            class="offset-1"
+            style="
+              background-color: rgb(36, 36, 45);
+              height: 100%;
+              border-radius: 25px;
+              display: flex;
+              justify-content: flex-end;
+              flex-direction: column;
+
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+            "
+            [ngStyle]="{
+              'background-image':
+                artist.imageRef !== ''
+                  ? 'url(' + artist.imageRef + ')'
+                  : 'url(' + '/assets/logo/default.jpeg' + ')'
+            }"
+          >
+            <div
+              class="py-2"
+              style="
+                background-color: rgba(0, 0, 0, 0.714);
+                color: white;
+                border-radius: 0px 0px 25px 25px;
+              "
+            >
+              <div style="font-size: 20px">{{ artist.name | slice: 0:20 }}</div>
+              <div>{{ artist.followers | numberSuffix }}</div>
+              <div>
+                <i
+                  class="fas fa-star"
+                  *ngFor="
+                    let i of [].constructor(calculateStars(artist.popularity))
+                  "
+                ></i>
+                <i
+                  class="far fa-star"
+                  *ngFor="
+                    let i of [].constructor(
+                      calculateEmptyStars(artist.popularity)
+                    )
+                  "
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

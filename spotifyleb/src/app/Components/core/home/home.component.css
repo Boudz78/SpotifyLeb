@@ -1,0 +1,16 @@
+.Welcometext {
+  color: white;
+  font-size: 100px;
+  line-height: 80px;
+}
+.subwelcometext {
+  font-size: 50px;
+  line-height: 70px;
+
+  color: #1db954;
+}
+.search {
+  font-size: 35px;
+  border-radius: 25px;
+  border: none;
+}

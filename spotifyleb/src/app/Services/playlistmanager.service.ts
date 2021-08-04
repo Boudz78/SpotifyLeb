@@ -22,6 +22,7 @@ export class PlaylistmanagerService {
       headers: headers,
     })
       .toPromise()
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch((err) => this.authManager.signOut());
   }
 }

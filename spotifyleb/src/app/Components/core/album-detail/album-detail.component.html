@@ -1,0 +1,123 @@
+<div
+  class="fluid-container"
+  style="
+    background-color: rgb(14, 18, 14);
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    vertical-align: middle;
+  "
+>
+  <div class="fluid-container">
+    <div class="row">
+      <div class="col my-2">
+        <p
+          style="
+            font-size: 60px;
+            color: white;
+            padding-top: 40px;
+            padding-left: 30px;
+          "
+        >
+          {{
+            AlbumArtist.length > 20
+              ? (AlbumArtist | slice: 0:20) + ".."
+              : AlbumArtist
+          }}
+        </p>
+        <p
+          style="
+            font-size: 35px;
+            color: white;
+            padding-top: 30px;
+            padding-left: 30px;
+          "
+        >
+          Albums
+        </p>
+      </div>
+      <div class="col" style="text-align: end; padding: 25px">
+        <button
+          class="ml-auto"
+          style="
+            width: 125px;
+            height: 45px;
+            font-size: 25px;
+            border-radius: 25px;
+            color: white;
+            border: none;
+            background-color: #1db954;
+          "
+          (click)="didGoBack()"
+        >
+          Go Back
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="fluid-container text-center"
+    style="background-color: rgb(14, 18, 14)"
+  >
+    <div class="fluid-container px-5">
+      <div class="row px-3">
+        <div
+          *ngFor="let album of Album"
+          class="col-lg-3 col-md-4 col-sm-6 pb-3"
+          style="height: 300px"
+        >
+          <div
+            class="offset-1"
+            style="
+              background-color: rgb(36, 36, 45);
+              height: 100%;
+              border-radius: 25px;
+              display: flex;
+              justify-content: flex-end;
+              flex-direction: column;
+
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: cover;
+            "
+            [ngStyle]="{
+              'background-image':
+                album.imageRef !== ''
+                  ? 'url(' + album.imageRef + ')'
+                  : 'url(' + '/assets/logo/default.jpeg' + ')'
+            }"
+          >
+            <div
+              class="py-2"
+              style="
+                background-color: rgba(0, 0, 0, 0.714);
+                color: white;
+                text-align: start;
+                padding-left: 8px;
+              "
+            >
+              <div style="font-size: 25px">{{ album.name }}</div>
+              <div style="font-size: 10px; padding-top: 5px">
+                {{ album.nameOfArtist }}
+              </div>
+              <div style="font-size: 15px">{{ album.Date }}</div>
+              <div style="font-size: 15px">{{ album.TrackAmount }} Tracks</div>
+            </div>
+            <div
+              class="py-2"
+              style="
+                background-color: #1db954;
+                border-radius: 0px 0px 25px 25px;
+                color: white;
+                cursor: pointer;
+              "
+              (click)="openURL(album.href)"
+            >
+              Preview On Spotify
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

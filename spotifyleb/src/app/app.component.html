@@ -1,7 +1,17 @@
+<mat-progress-bar
+  *ngIf="LoadingManager.isLoading | async"
+  class="loadingbar"
+  mode="indeterminate"
+></mat-progress-bar>
+
 <header>
   <app-nav></app-nav>
 </header>
 
-<router-outlet></router-outlet>
+<router-outlet
+  [ngClass]="{
+    overlay: (LoadingManager.isLoading | async)
+  }"
+></router-outlet>
 
 <footer></footer>

@@ -1,3 +1,4 @@
+import { LoadingManagerService } from './Services/loading-manager.service';
 import { Component } from '@angular/core';
 import { AuthmanagerService } from './Services/authmanager.service';
 
@@ -8,4 +9,8 @@ import { AuthmanagerService } from './Services/authmanager.service';
 })
 export class AppComponent {
   title = 'spotifyleb';
+  isLoading: boolean = false;
+
+  constructor(public LoadingManager: LoadingManagerService) {}
+  ngOnInit(): void {}
 }

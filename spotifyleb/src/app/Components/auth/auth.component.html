@@ -1,2 +1,42 @@
 <!-- <button (click)="didClickLoginButton()">Click Me!</button>
 <button (click)="didClickGetArtists()">Check Log for artists</button> -->
+<div class="fluid-container">
+  <div class="row">
+    <div class="col-12">
+      <div style="text-align: center">
+        <img
+          src="/assets/logo/logoonly.svg"
+          width="400px"
+          style="fill: black"
+          alt=""
+        />
+      </div>
+      <div style="text-align: center">
+        <p class="entrance-text">Your Artists, At A glance.</p>
+      </div>
+
+      <button
+        style="
+          border-radius: 25px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          background-color: white;
+          border: none;
+          position: absolute;
+          top: 120%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        "
+        (click)="didClickLoginButton()"
+      >
+        <div class="fluid-container">
+          <div class="row">
+            <div class="col-1" style="vertical-align: middle">
+              <img src="/assets/logo/logoonly.svg" width="60px" alt="" />
+            </div>
+            <div class="col" style="padding-top: 9px">Login with Spotify</div>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
