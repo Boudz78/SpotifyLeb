@@ -7,18 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  showSignOut = false;
-  constructor(private AuthmanagerService: AuthmanagerService) {}
+  constructor(public AuthmanagerService: AuthmanagerService) {}
 
-  ngOnInit(): void {
-    this.AuthmanagerService.isAuthed.subscribe((res) => {
-      if (res === true) {
-        this.showSignOut = true;
-      } else {
-        this.showSignOut = false;
-      }
-    });
-  }
+  ngOnInit(): void {}
   handleSignOut() {
     this.AuthmanagerService.signOut();
   }

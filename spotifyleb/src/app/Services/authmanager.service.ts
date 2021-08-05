@@ -59,6 +59,7 @@ export class AuthmanagerService {
   }
   signOut() {
     this.AUTH_TOKEN = '';
+    this.isAuthed.next(false);
     localStorage.removeItem('token');
     this.router.navigateByUrl('/');
   }
