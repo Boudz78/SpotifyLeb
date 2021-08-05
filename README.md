@@ -18,4 +18,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Final thoughts
 
-This project took approximately 24-36 hours, and was definitely fun to develop. An important thing to notice that even in these simple projects theres always room to improve as i had a learned a few things such as the `RouteReuseStragey` which basically caches Components. As I thrive to dive deeper, as I discover the power of Angular.
+This project took approximately 24-36 hours, and was definitely fun to develop. An important thing to notice that even in these simple projects theres always room to improve as i had learned a few things such as the `RouteReuseStragey` which basically caches Components. Looks like theres always room for improvement everyday :) .
