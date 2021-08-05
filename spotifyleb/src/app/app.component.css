@@ -15,3 +15,14 @@
   position: fixed;
   z-index: 1005;
 }
+/* Grow Shadow */
+.hvr-grow {
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+  transform: scale(1.1);
+}

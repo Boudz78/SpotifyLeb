@@ -11,7 +11,7 @@
   <div class="fluid-container text-center">
     <div class="row">
       <div
-        class="col my-2"
+        class="col my-2 mt-3"
         style="
           align-items: center;
           justify-content: center;
@@ -21,6 +21,7 @@
         <input
           #searchQueryInputField
           type="text"
+          class="hvr-grow"
           placeholder="Search Artists"
           class="search text-center"
           (input)="inputChanged(searchQueryInputField.value)"
