@@ -7,6 +7,18 @@ Basically spotify, but cooler than spotify :)
 You will need `node` installed.
 You will need a package manager such as `npm` installed.
 
+## Essential Note
+
+Due to spotify's API restriction to explicit 25 users in development mode,
+I will provide the account which you can login to test the app which is granted access. Everything else should probably act as in production.
+
+In a real world scenario, we would submit a quota extension so that anyone can technically login to the web application.
+
+`email: johnsmithITXI@gmail.com `
+`password: johnsmithITXI@gmail.com `
+
+For more updates please check [spotify official documentation](https://developer.spotify.com/community/news/2021/05/27/improving-the-developer-and-user-experience-for-third-party-apps/)
+
 ## Installation steps
 
 - Clone your project using `git clone`
