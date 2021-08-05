@@ -1,27 +1,21 @@
 # Spotifyleb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
+Basically spotify, but cooler than spotify :)
 
-## Development server
+## Prerequisites
+
+You will need `node` installed.
+You will need a package manager such as `npm` installed.
+
+## Installation steps
+
+- Clone your project using `git clone`
+- Navigate to the project directory and run `npm i`
+- Use `ng serve` to start the project
+- Your application should be running at port `4200`, hence your url: `http://localhost:4200`
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Final thoughts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project took approximately 24-36 hours, and was definitely fun to develop. An important thing to notice that even in these simple projects theres always room to improve as i had a learned a few things such as the `RouteReuseStragey` which basically caches Components. As I thrive to dive deeper, as I discover the power of Angular.
