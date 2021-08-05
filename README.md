@@ -21,7 +21,7 @@ For more updates please check [spotify official documentation](https://developer
 
 ## Installation steps
 
-- Clone your project using `git clone`
+- Clone the project using `git clone`
 - Navigate to the project directory and run `npm i`
 - Use `ng serve` to start the project
 - Your application should be running at port `4200`, hence your url: `http://localhost:4200`
