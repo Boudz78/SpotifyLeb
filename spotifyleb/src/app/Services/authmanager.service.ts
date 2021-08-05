@@ -53,8 +53,12 @@ export class AuthmanagerService {
   }
   checkIfLoggedIn() {
     if (localStorage.getItem('token')) {
+      this.isAuthed.next(true);
+
       return true;
     }
+    this.isAuthed.next(false);
+
     return false;
   }
   signOut() {

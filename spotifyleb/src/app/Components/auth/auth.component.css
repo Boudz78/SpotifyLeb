@@ -25,11 +25,10 @@
 
 .waveWrapperInner {
   position: absolute;
-  top: 10%;
   width: 100%;
   overflow: hidden;
-  height: 80%;
-  bottom: 200px;
+  height: 100%;
+  bottom: 20px;
   background-image: linear-gradient(to top, #1db954 30%, #27273c 80%);
 }
 
@@ -67,4 +66,15 @@
 }
 .grow:hover {
   transform: scale(1.2);
+}
+/* Grow Shadow */
+.hvr-grow-shadow {
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover,
+.hvr-grow-shadow:focus,
+.hvr-grow-shadow:active {
+  transform: scale(1.1);
 }
