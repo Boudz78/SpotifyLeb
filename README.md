@@ -2,11 +2,6 @@
 
 Basically spotify, but cooler than spotify :)
 
-## Prerequisites
-
-You will need `node` installed.
-You will need a package manager such as `npm` installed.
-
 ## Essential Note
 
 Due to spotify's API restriction to explicit 25 users in development mode,
@@ -19,6 +14,11 @@ In a real world scenario, we would switch to a more suitable mode with access to
 `password: johnsmithITXI@gmail.com `
 
 For more info about "development mode" in Spotify [Spotify Official Documentation](https://developer.spotify.com/community/news/2021/05/27/improving-the-developer-and-user-experience-for-third-party-apps/)
+
+## Prerequisites
+
+You will need `node` installed.
+You will need a package manager such as `npm` installed.
 
 ## Installation steps
 
