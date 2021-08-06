@@ -5,7 +5,7 @@ Basically spotify, but cooler than spotify :)
 ## Essential Note
 
 Due to spotify's API restriction to explicit 25 users in development mode,
-I will provide the account which you can login to test the app which is granted access. Everything else should probably act as in production.
+I will provide the account which you can login to test the app which is granted access.
 
 In a real world scenario, we would switch to a more suitable mode with access to all users.
 
