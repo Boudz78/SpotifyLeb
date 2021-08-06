@@ -1,17 +1,17 @@
-import { AlbummanagerService } from './../../../Services/albummanager.service';
-import { Component, HostListener, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { debounceTime } from 'rxjs/operators';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { album } from 'src/app/Models/album';
+import { AlbummanagerService } from "./../../../Services/albummanager.service";
+import { Component, HostListener, OnInit } from "@angular/core";
+import { Location } from "@angular/common";
+import { debounceTime } from "rxjs/operators";
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import { album } from "src/app/Models/album";
 
 @Component({
-  selector: 'app-album-detail',
-  templateUrl: './album-detail.component.html',
-  styleUrls: ['./album-detail.component.css'],
+  selector: "app-album-detail",
+  templateUrl: "./album-detail.component.html",
+  styleUrls: ["./album-detail.component.css"],
 })
 export class AlbumDetailComponent implements OnInit {
-  AlbumArtist = 'John Smith';
+  AlbumArtist = "John Smith";
   Album: album[] = [];
   loadedAlbumMetaData;
   calledOnce = false;
@@ -29,12 +29,12 @@ export class AlbumDetailComponent implements OnInit {
       const arr: any[] = res.albumData.albumData.items;
       const albumArr = arr.map((element) => {
         var album: album = {
-          name: 'string',
-          nameOfArtist: 'number',
-          Date: 'number',
-          TrackAmount: 'string',
-          href: 'string',
-          imageRef: 'string',
+          name: "string",
+          nameOfArtist: "number",
+          Date: "number",
+          TrackAmount: "string",
+          href: "string",
+          imageRef: "string",
         };
         album.name = element.name;
         album.nameOfArtist = element.artists[0].name;
@@ -42,7 +42,7 @@ export class AlbumDetailComponent implements OnInit {
         album.TrackAmount = element.total_tracks;
         album.href = element.external_urls.spotify;
         if (element.images[1] === null || element.images[1] === undefined) {
-          album.imageRef = '/assets/';
+          album.imageRef = "/assets/";
         } else {
           album.imageRef = element.images[1].url;
         }
@@ -53,17 +53,18 @@ export class AlbumDetailComponent implements OnInit {
       console.log(this.loadedAlbumMetaData);
       console.log(this.Album);
     });
+    window.scroll(0, 0);
   }
   didGoBack() {
     this.location.back();
   }
   openURL(url) {
-    window.open(url, '_blank').focus();
+    window.open(url, "_blank").focus();
   }
   inputChanged(searchQuery) {
     console.log(searchQuery);
   }
-  @HostListener('window:scroll', ['$event'])
+  @HostListener("window:scroll", ["$event"])
   onWindowScroll(event: any) {
     if (
       document.body.clientHeight + window.scrollY + 20 >=
@@ -80,7 +81,7 @@ export class AlbumDetailComponent implements OnInit {
       this.loadedAlbumMetaData.next === null ||
       this.loadedAlbumMetaData === []
     ) {
-      console.log('there no more pages to add');
+      console.log("there no more pages to add");
       return;
     }
     this.albumManager
@@ -90,12 +91,12 @@ export class AlbumDetailComponent implements OnInit {
         const arr: any[] = res.items;
         const albumArr = arr.map((element) => {
           var album: album = {
-            name: 'string',
-            nameOfArtist: 'number',
-            Date: 'number',
-            TrackAmount: 'string',
-            href: 'string',
-            imageRef: 'string',
+            name: "string",
+            nameOfArtist: "number",
+            Date: "number",
+            TrackAmount: "string",
+            href: "string",
+            imageRef: "string",
           };
           album.name = element.name;
           album.nameOfArtist = element.artists[0].name;
@@ -103,7 +104,7 @@ export class AlbumDetailComponent implements OnInit {
           album.TrackAmount = element.total_tracks;
           album.href = element.external_urls.spotify;
           if (element.images[1] === null || element.images[1] === undefined) {
-            album.imageRef = '/assets/';
+            album.imageRef = "/assets/";
           } else {
             album.imageRef = element.images[1].url;
           }
@@ -115,6 +116,6 @@ export class AlbumDetailComponent implements OnInit {
       });
   }
   clearPosParam() {
-    this.router.navigate(['.'], { relativeTo: this.route, queryParams: {} });
+    this.router.navigate(["."], { relativeTo: this.route, queryParams: {} });
   }
 }
