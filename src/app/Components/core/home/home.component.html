@@ -55,24 +55,12 @@
           (click)="showAlbumsFor(artist?.id, artist?.name)"
         >
           <div
-            class="offset-1"
-            style="
-              background-color: rgb(36, 36, 45);
-              height: 100%;
-              border-radius: 25px;
-              display: flex;
-              justify-content: flex-end;
-              flex-direction: column;
-
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: cover;
-            "
+            class="offset-1 ArtistCardInner"
             [ngStyle]="{
               'background-image':
                 artist.imageRef !== ''
                   ? 'url(' + artist.imageRef + ')'
-                  : 'url(' + '/assets/logo/default.jpeg' + ')'
+                  : 'url(https://mcleansmartialarts.com/wp-content/uploads/2017/04/default-image.jpg)'
             }"
           >
             <div

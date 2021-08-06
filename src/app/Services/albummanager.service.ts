@@ -1,10 +1,10 @@
-import { AuthmanagerService } from 'src/app/Services/authmanager.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { debounceTime } from 'rxjs/operators';
+import { AuthmanagerService } from "src/app/Services/authmanager.service";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { debounceTime } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AlbummanagerService {
   constructor(
@@ -14,16 +14,15 @@ export class AlbummanagerService {
 
   getAlbumsfromArtist(id) {
     if (id === null || id === undefined) {
-      console.log('no need');
       return;
     }
     const headers = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + this.authManager.getAuthorizationToken()
+      "Authorization",
+      "Bearer " + this.authManager.getAuthorizationToken()
     );
     return new Promise((resolve, reject) => {
       return this.HttpClient.get(
-        'https://api.spotify.com/v1/artists/' + id + '/albums',
+        "https://api.spotify.com/v1/artists/" + id + "/albums",
         {
           headers: headers,
         }
@@ -35,8 +34,8 @@ export class AlbummanagerService {
   }
   loadArtistPages(nextPageURL: string) {
     const headers = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + this.authManager.getAuthorizationToken()
+      "Authorization",
+      "Bearer " + this.authManager.getAuthorizationToken()
     );
     return new Promise((resolve, reject) => {
       return this.HttpClient.get(nextPageURL, {

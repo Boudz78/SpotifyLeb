@@ -1,16 +1,26 @@
-.Welcometext {
-  color: white;
-  font-size: 100px;
-  line-height: 80px;
-}
-.subwelcometext {
-  font-size: 50px;
-  line-height: 70px;
-
-  color: #1db954;
-}
 .search {
   font-size: 35px;
   border-radius: 25px;
   border: none;
+}
+.backbutton {
+  width: 125px;
+  height: 45px;
+  font-size: 25px;
+  border-radius: 25px;
+  color: white;
+  border: none;
+  background-color: #1db954;
+}
+.innerCard {
+  background-color: rgb(36, 36, 45);
+  height: 100%;
+  border-radius: 25px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

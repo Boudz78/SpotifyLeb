@@ -17,12 +17,8 @@
 }
 /* Grow Shadow */
 .hvr-grow {
-  transform: perspective(1px) translateZ(0);
-  transition-duration: 0.3s;
-  transition-property: box-shadow, transform;
+  transition: all 0.2s ease-in-out;
 }
-.hvr-grow:hover,
-.hvr-grow:focus,
-.hvr-grow:active {
-  transform: scale(1.1);
+.hvr-grow:hover {
+  transform: scale(1.3);
 }
