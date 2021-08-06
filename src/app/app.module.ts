@@ -16,6 +16,8 @@ import { CustomReuseStrategy } from './Services/route-reuse-service.service';
 import { AlbumDetailComponent } from './Components/core/album-detail/album-detail.component';
 import { FooterComponent } from './Components/shared/footer/footer.component';
 import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
+import { ArtistItemComponent } from './Components/core/home/artist-item/artist-item.component';
+import { AlbumItemComponent } from './Components/core/album-detail/album-item/album-item.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { NumberSuffixPipe } from './pipes/number-suffix.pipe';
     AlbumDetailComponent,
     FooterComponent,
     NumberSuffixPipe,
+    ArtistItemComponent,
+    AlbumItemComponent,
   ],
   imports: [
     BrowserModule,

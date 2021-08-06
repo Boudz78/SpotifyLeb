@@ -1,11 +1,11 @@
 .Welcometext {
   color: white;
-  font-size: 85px;
+  font-size: 56px;
   line-height: 80px;
 }
 .subwelcometext {
-  font-size: 50px;
-  line-height: 70px;
+  font-size: 35px;
+  line-height: 35px;
 
   color: #1db954;
 }
@@ -13,17 +13,4 @@
   font-size: 35px;
   border-radius: 25px;
   border: none;
-}
-
-.ArtistCardInner {
-  background-color: rgb(36, 36, 45);
-  height: 100%;
-  border-radius: 25px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }

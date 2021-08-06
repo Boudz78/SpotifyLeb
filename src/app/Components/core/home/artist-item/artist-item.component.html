@@ -1,0 +1,31 @@
+<div
+  class="offset-1 ArtistCardInner"
+  [ngStyle]="{
+    'background-image':
+      artist.imageRef !== ''
+        ? 'url(' + artist.imageRef + ')'
+        : 'url(https://mcleansmartialarts.com/wp-content/uploads/2017/04/default-image.jpg)'
+  }"
+>
+  <div
+    class="py-2"
+    style="
+      background-color: rgba(0, 0, 0, 0.714);
+      color: white;
+      border-radius: 0px 0px 25px 25px;
+    "
+  >
+    <div style="font-size: 20px">{{ artist.name | slice: 0:20 }}</div>
+    <div>{{ artist.followers | numberSuffix }}</div>
+    <div>
+      <i
+        class="fas fa-star"
+        *ngFor="let i of [].constructor(calculateStars(artist.popularity))"
+      ></i>
+      <i
+        class="far fa-star"
+        *ngFor="let i of [].constructor(calculateEmptyStars(artist.popularity))"
+      ></i>
+    </div>
+  </div>
+</div>

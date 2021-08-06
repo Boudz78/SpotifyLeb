@@ -26,43 +26,10 @@ export class AlbumDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe((res) => {
       this.AlbumArtist = res.albumData.artistName;
-      const arr: any[] = res.albumData.albumData.items;
-      const albumArr = arr.map((element) => {
-        var album: album = {
-          name: "string",
-          nameOfArtist: "number",
-          Date: "number",
-          TrackAmount: "string",
-          href: "string",
-          imageRef: "string",
-        };
-        album.name = element.name;
-        album.nameOfArtist = element.artists[0].name;
-        album.Date = element.release_date;
-        album.TrackAmount = element.total_tracks;
-        album.href = element.external_urls.spotify;
-        if (element.images[1] === null || element.images[1] === undefined) {
-          album.imageRef = "/assets/";
-        } else {
-          album.imageRef = element.images[1].url;
-        }
-        return album;
-      });
-      this.Album = albumArr;
+      this.Album = this.albumManager.AlbumArrayFactory(res);
       this.loadedAlbumMetaData = res.albumData.albumData;
-      console.log(this.loadedAlbumMetaData);
-      console.log(this.Album);
     });
     window.scroll(0, 0);
-  }
-  didGoBack() {
-    this.location.back();
-  }
-  openURL(url) {
-    window.open(url, "_blank").focus();
-  }
-  inputChanged(searchQuery) {
-    console.log(searchQuery);
   }
   @HostListener("window:scroll", ["$event"])
   onWindowScroll(event: any) {
@@ -87,7 +54,6 @@ export class AlbumDetailComponent implements OnInit {
     this.albumManager
       .loadArtistPages(this.loadedAlbumMetaData.next)
       .then((res: any) => {
-        console.log(res);
         const arr: any[] = res.items;
         const albumArr = arr.map((element) => {
           var album: album = {
@@ -114,6 +80,9 @@ export class AlbumDetailComponent implements OnInit {
         this.loadedAlbumMetaData = res;
         this.calledOnce = false;
       });
+  }
+  didGoBack() {
+    this.location.back();
   }
   clearPosParam() {
     this.router.navigate(["."], { relativeTo: this.route, queryParams: {} });

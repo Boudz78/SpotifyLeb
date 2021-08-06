@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
     this.searchSubscription = this.searchQuery
       .pipe(debounceTime(500))
       .subscribe((res: string) => {
-        console.log("caught change.");
         this.handleDidSearch(res);
       });
   }
@@ -49,35 +48,12 @@ export class HomeComponent implements OnInit {
 
   handleLoadPages() {
     if (this.loadedArtistsMetaData.next === null || this.artists === []) {
-      console.log("there no more pages to add");
       return;
     }
     this.artistManager
       .loadArtistPages(this.loadedArtistsMetaData.next)
       .then((res: any) => {
-        const arr: any[] = res.artists.items;
-        const artistArr = arr.map((element) => {
-          var artist: artist = {
-            id: "",
-            name: "null",
-            followers: 0,
-            popularity: 0,
-            href: "",
-            imageRef: "",
-          };
-          artist.id = element.id;
-          artist.name = element.name;
-          artist.href = element.href;
-          artist.followers = element.followers.total;
-          artist.popularity = element.popularity;
-          if (element.images[1] === null || element.images[1] === undefined) {
-            artist.imageRef = "";
-          } else {
-            artist.imageRef = element.images[1].url;
-          }
-          return artist;
-        });
-        this.artists.push(...artistArr);
+        this.artists.push(...this.artistManager.artistArrayFactory(res));
         this.loadedArtistsMetaData = res.artists;
       });
   }
@@ -91,37 +67,16 @@ export class HomeComponent implements OnInit {
     this.artistManager
       .searchArtist(searchQuery)
       .then((res: any) => {
-        const arr: any[] = res.artists.items;
-        const artistArr = arr.map((element) => {
-          var artist: artist = {
-            id: "null",
-            name: "null",
-            followers: 0,
-            popularity: 0,
-            href: "",
-            imageRef: "string",
-          };
-          artist.id = element.id;
-          artist.name = element.name;
-          artist.followers = element.followers.total;
-          artist.popularity = element.popularity;
-          artist.href = element.href;
-          if (element.images[1] === null || element.images[1] === undefined) {
-            artist.imageRef = "/assets/";
-          } else {
-            artist.imageRef = element.images[1].url;
-          }
-          return artist;
-        });
-        this.artists = artistArr;
+        console.log(res);
+        this.artists = this.artistManager.artistArrayFactory(res);
         this.loadedArtistsMetaData = res.artists;
         this.calledOnce = false;
-        console.log(this.loadedArtistsMetaData);
       })
       .catch((err) => {
         console.log("error while getting data.");
       });
   }
+  //Listen when a user scrolls to bottom page.
   @HostListener("window:scroll", ["$event"])
   onWindowScroll(event: any) {
     if (
@@ -130,18 +85,12 @@ export class HomeComponent implements OnInit {
     ) {
       if (this.calledOnce === false) {
         this.handleLoadPages();
-        console.log("tiggred");
         this.calledOnce = true;
       }
     }
   }
+
   showAlbumsFor(id, name) {
     this.router.navigate(["/album/" + id], { queryParams: { name: name } });
-  }
-  calculateStars(popularity) {
-    return Math.floor(popularity / 10 / 2);
-  }
-  calculateEmptyStars(popularity) {
-    return 5 - Math.floor(popularity / 10 / 2);
   }
 }

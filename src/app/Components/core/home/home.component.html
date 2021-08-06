@@ -8,27 +8,6 @@
     vertical-align: middle;
   "
 >
-  <div class="fluid-container text-center">
-    <div class="row">
-      <div
-        class="col my-2 mt-3"
-        style="
-          align-items: center;
-          justify-content: center;
-          vertical-align: middle;
-        "
-      >
-        <input
-          #searchQueryInputField
-          type="text"
-          class="hvr-grow"
-          placeholder="Search Artists"
-          class="search text-center"
-          (input)="inputChanged(searchQueryInputField.value)"
-        />
-      </div>
-    </div>
-  </div>
   <div
     class="fluid-container text-center"
     style="background-color: rgb(14, 18, 14)"
@@ -37,8 +16,28 @@
       <div class="pl-2" style="padding-top: 90px">
         <p class="Welcometext">Welcome Back, {{ userInfo?.display_name }}</p>
       </div>
-      <div class="pl-2" style="padding-top: 30px">
+      <div class="pl-2" style="padding-top: 10px">
         <p class="subwelcometext">Explore your favorite artists now!</p>
+      </div>
+    </div>
+    <div class="fluid-container text-center">
+      <div class="row">
+        <div
+          class="col my-2 mt-3"
+          style="
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+          "
+        >
+          <input
+            #searchQueryInputField
+            type="text"
+            placeholder="Search Artists"
+            class="search text-center"
+            (input)="inputChanged(searchQueryInputField.value)"
+          />
+        </div>
       </div>
     </div>
     <div class="fluid-container px-5" *ngIf="artists?.length !== 0">
@@ -48,50 +47,14 @@
         </p>
       </div>
       <div class="row px-3">
-        <div
+        <app-artist-item
+          [artist]="artist"
           *ngFor="let artist of artists"
+          (click)="showAlbumsFor(artist?.id, artist?.name)"
           class="col-lg-3 col-md-4 col-sm-6 pb-3"
           style="height: 200px; cursor: pointer"
-          (click)="showAlbumsFor(artist?.id, artist?.name)"
         >
-          <div
-            class="offset-1 ArtistCardInner"
-            [ngStyle]="{
-              'background-image':
-                artist.imageRef !== ''
-                  ? 'url(' + artist.imageRef + ')'
-                  : 'url(https://mcleansmartialarts.com/wp-content/uploads/2017/04/default-image.jpg)'
-            }"
-          >
-            <div
-              class="py-2"
-              style="
-                background-color: rgba(0, 0, 0, 0.714);
-                color: white;
-                border-radius: 0px 0px 25px 25px;
-              "
-            >
-              <div style="font-size: 20px">{{ artist.name | slice: 0:20 }}</div>
-              <div>{{ artist.followers | numberSuffix }}</div>
-              <div>
-                <i
-                  class="fas fa-star"
-                  *ngFor="
-                    let i of [].constructor(calculateStars(artist.popularity))
-                  "
-                ></i>
-                <i
-                  class="far fa-star"
-                  *ngFor="
-                    let i of [].constructor(
-                      calculateEmptyStars(artist.popularity)
-                    )
-                  "
-                ></i>
-              </div>
-            </div>
-          </div>
-        </div>
+        </app-artist-item>
       </div>
     </div>
   </div>
