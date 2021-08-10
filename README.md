@@ -16,9 +16,9 @@ In a real world scenario, we would switch to a more suitable mode with access to
 For more info about "development mode" in Spotify [Spotify Official Documentation](https://developer.spotify.com/community/news/2021/05/27/improving-the-developer-and-user-experience-for-third-party-apps/)
 
 ## Prerequisites
+- You will need a package manager such as `npm` installed.
 - You will need `npm install -g @angular/cli`
 - You will need `node` installed.
-- You will need a package manager such as `npm` installed.
 
 ## Installation steps
 
